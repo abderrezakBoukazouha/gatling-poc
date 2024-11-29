@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sandbox</groupId>
-	<artifactId>presentation</artifactId>
+	<artifactId>gatling-poc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>presentation</name>
+	<name>gatling-poc</name>
 	<description>Prensetation of continuous integration pipeline</description>
 	<url/>
 
