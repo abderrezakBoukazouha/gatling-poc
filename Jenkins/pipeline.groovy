@@ -14,7 +14,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://your-repository-url.git'
+                git branch: 'main', url: 'https://github.com/abderrezakBoukazouha/gatling-poc'
             }
         }
 
