@@ -51,7 +51,11 @@ pipeline {
 
     post {
         always {
-            echo 'Pipeline execution complete.'
+            // Archive the Gatling results
+            archiveArtifacts artifacts: '**/*.html', fingerprint: true
+
+            // Optionally use the Gatling plugin if installed
+            gatlingArchive()
         }
         success {
             echo 'Pipeline executed successfully.'
