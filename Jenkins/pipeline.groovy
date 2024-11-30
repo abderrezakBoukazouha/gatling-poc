@@ -42,8 +42,8 @@ pipeline {
         stage('launch gatling tests') {
             steps {
                 script {
-                    sh "cd gatling"
-                    sh "./mvnw gatling:test"
+                    sh "ls -a"
+                    sh "./mvnw -f ./gatling gatling:test"
                 }
             }
         }
@@ -57,10 +57,8 @@ pipeline {
             // Optionally use the Gatling plugin if installed
             gatlingArchive()
         }
-
         success {
             echo 'Pipeline executed successfully.'
-
         }
         failure {
             echo 'Pipeline failed.'
