@@ -41,7 +41,7 @@ pipeline {
             steps {
                 script {
                     sh "cd gatling"
-                    sh "mvn  gatling:test"
+                    sh "./mvnw gatling:test"
                 }
             }
         }
