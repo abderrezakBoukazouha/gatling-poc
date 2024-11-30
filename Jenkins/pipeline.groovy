@@ -32,7 +32,7 @@ pipeline {
             steps {
                 // Build and test Docker image
                 script {
-                    sh "docker run -p 8010:8010 ${imageName}"
+                    sh "docker run -p 8010:8010 -d ${imageName}"
                 }
             }
         }
