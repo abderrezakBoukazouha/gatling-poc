@@ -3,6 +3,7 @@ pipeline {
 
     environment {
         TIMESTAMP = "${new Date().format('yyyyMMddHHmmss')}"
+        def imageName = "presentation-app:${env.TIMESTAMP}"
     }
 
     stages {
@@ -22,8 +23,25 @@ pipeline {
             steps {
                 // Build and test Docker image
                 script {
-                    def imageName = "presentation-app:${env.TIMESTAMP}"
                     sh "docker build -t ${imageName} ."
+                }
+            }
+        }
+
+        stage('launch containerized application') {
+            steps {
+                // Build and test Docker image
+                script {
+                    sh "docker run -p 8010:8010 ${imageName}"
+                }
+            }
+        }
+
+        stage('launch gatling tests') {
+            steps {
+                script {
+                    sh "cd gatling"
+                    sh "mvn  gatling:test"
                 }
             }
         }
