@@ -9,6 +9,8 @@ pipeline {
     stages {
         stage('Clean Workspace') {
             steps {
+                sh 'docker stop $(docker ps -a -q)'
+                sh 'docker rm $(docker ps -a -q)'
                 cleanWs()
             }
         }
@@ -50,8 +52,6 @@ pipeline {
     post {
         always {
             echo 'Pipeline execution complete.'
-            sh "docker stop -t ${imageName}"
-            sh " docker rm -t ${imageName}"
         }
         success {
             echo 'Pipeline executed successfully.'
