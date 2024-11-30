@@ -8,7 +8,7 @@ import static io.gatling.javaapi.core.CoreDsl.*;
 import static io.gatling.javaapi.http.HttpDsl.http;
 import static io.gatling.javaapi.http.HttpDsl.status;
 
-class GreetingControllerLoadTest extends Simulation {
+public class GreetingControllerLoadTest extends Simulation {
 
     HttpProtocolBuilder httpProtocol = http.baseUrl("http://localhost:8010");
 
