@@ -57,6 +57,7 @@ pipeline {
             // Optionally use the Gatling plugin if installed
             gatlingArchive()
         }
+
         success {
             echo 'Pipeline executed successfully.'
         }
