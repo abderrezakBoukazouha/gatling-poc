@@ -9,8 +9,8 @@ pipeline {
     stages {
         stage('Clean Workspace') {
             steps {
-                sh 'docker stop $(docker ps -a -q --filter \'ancestor=presentation-app\')'
-                sh 'docker rm \$(docker ps -a -q --filter \'ancestor=presentation-app\')'
+                sh 'docker stop $(docker ps -a -q)'
+                sh 'docker rm $(docker ps -a -q)'
                 cleanWs()
             }
         }
@@ -57,9 +57,9 @@ pipeline {
             // Optionally use the Gatling plugin if installed
             gatlingArchive()
 
-            // delete unused containers
-            sh 'docker stop $(docker ps -a -q --filter \'ancestor=presentation-app\')'
-            sh 'docker rm \$(docker ps -a -q --filter \'ancestor=presentation-app\')'
+            // delete all containers
+            sh 'docker stop $(docker ps -a -q)'
+            sh 'docker rm $(docker ps -a -q)'
         }
         success {
             echo 'Pipeline executed successfully.  '
