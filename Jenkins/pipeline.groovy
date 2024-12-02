@@ -58,7 +58,7 @@ pipeline {
             gatlingArchive()
         }
         success {
-            echo 'Pipeline executed successfully.'
+            echo 'Pipeline executed successfully.  '
         }
         failure {
             echo 'Pipeline failed.'
