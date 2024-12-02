@@ -23,7 +23,7 @@ public class GreetingControllerLoadTest extends Simulation {
                                     jsonPath("$[*]").count().is(2),
 
                                     jsonPath("$[*]").findAll().transform(strings ->
-                                            strings.contains("Bonjour !") && strings.contains("Hello")
+                                            strings.contains("Bonjour !") && strings.contains("Good Morning !")
                                     ).is(true)
                             )
             );
